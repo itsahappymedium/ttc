@@ -1,0 +1,32 @@
+{
+  "name": "itsahappymedium/ttc",
+  "description": "A PHP Command Line tool for compiling Twig template files.",
+  "keywords": [
+    "cli",
+    "templates",
+    "twig"
+  ],
+  "authors": [
+    {
+      "name": "Happy Medium",
+      "email": "developers@itsahappymedium.com",
+      "homepage": "https://itsahappymedium.com"
+    },
+    {
+      "name": "Kodie Grantham",
+      "email": "kodie.grantham@gmail.com",
+      "homepage": "https://kodieg.com"
+    }
+  ],
+  "homepage": "https://github.com/itsahappymedium/ttc",
+  "license": "MIT",
+  "bin": [
+    "bin/ttc"
+  ],
+  "require": {
+    "php": "^7.3|^8.0",
+    "splitbrain/php-cli": "^1.1",
+    "twig/twig": "^3.4.3",
+    "symfony/yaml": "^6.0"
+  }
+}
