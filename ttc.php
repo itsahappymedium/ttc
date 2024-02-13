@@ -36,7 +36,7 @@ class TTC extends CLI {
       $twig = new \Twig\Environment($loader);
 
       try {
-        $this->print(" - <cyan>Compiling</cyan> <brown>${input}</brown> to <brown>${output}</brown>...");
+        $this->print(" - <cyan>Compiling</cyan> <brown>{$input}</brown> to <brown>{$output}</brown>...");
         $template = $twig->render($input_path, $this->arguments);
 
         if (!is_dir(dirname($output))) {
@@ -46,7 +46,7 @@ class TTC extends CLI {
         file_put_contents($output, $template);
       } catch(Exception $e) {
         $error_message = $e->getMessage();
-        $this->print("<lightred>Error</lightred>: ${error_message}", STDERR);
+        $this->print("<lightred>Error</lightred>: {$error_message}", STDERR);
         exit(1);
       }
     }
@@ -115,7 +115,7 @@ class TTC extends CLI {
           $arguments_file_contents = file_get_contents($arguments_file);
         } catch(Exception $e) {
           $error_message = $e->getMessage();
-          $this->print("<lightred>Error</lightred>: ${error_message}", STDERR);
+          $this->print("<lightred>Error</lightred>: {$error_message}", STDERR);
           exit(1);
         }
 
@@ -134,7 +134,7 @@ class TTC extends CLI {
             $arguments = Yaml::parse($arguments_file_contents);
             break;
           default:
-            $this->print("<lightred>Error</lightred>: Invalid arguments-file-type <yellow>${arguments_file_type}</yellow>.", STDERR);
+            $this->print("<lightred>Error</lightred>: Invalid arguments-file-type <yellow>{$arguments_file_type}</yellow>.", STDERR);
             exit(1);
         }
 
@@ -145,7 +145,7 @@ class TTC extends CLI {
             if (isset($arguments[$base_path])) {
               $arguments = $arguments[$base_path];
             } else {
-              $this->print("<lightred>Error</lightred>: Invalid arguments-file-base <yellow>${arguments_file_base}</yellow>.", STDERR);
+              $this->print("<lightred>Error</lightred>: Invalid arguments-file-base <yellow>{$arguments_file_base}</yellow>.", STDERR);
               exit(1);
             }
           }
@@ -153,7 +153,7 @@ class TTC extends CLI {
 
         $this->arguments = $arguments;
       } else {
-        $this->print("<lightred>Error</lightred>: <yellow>${arguments_file}</yellow> does not exist.", STDERR);
+        $this->print("<lightred>Error</lightred>: <yellow>{$arguments_file}</yellow> does not exist.", STDERR);
         exit(1);
       }
     }
